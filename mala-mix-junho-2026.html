@@ -103,7 +103,14 @@ body::after  { background: var(--secondary); bottom: -20%; right: -10%; animatio
 }
 .summary-bar {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 40px;
+}
+.summary-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .summary-chip {
   background: rgba(255,255,255,0.05);
@@ -115,6 +122,13 @@ body::after  { background: var(--secondary); bottom: -20%; right: -10%; animatio
   letter-spacing: 2px;
   text-transform: uppercase;
   color: rgba(255,255,255,0.45);
+}
+.summary-chip.format-chip {
+  background: transparent;
+  border-color: rgba(204,255,0,0.2);
+  color: rgba(204,255,0,0.55);
+  padding: 4px 12px;
+  font-size: 8px;
 }
 
 /* ── Tasks Container ── */
@@ -452,7 +466,15 @@ body::after  { background: var(--secondary); bottom: -20%; right: -10%; animatio
   <p class="doc-subtitle">Ideias para aprovação &nbsp;·&nbsp; Junho de 2026</p>
   <hr class="header-divider">
   <div class="summary-bar">
-    <span class="summary-chip">16 ideias · aguardando aprovação</span>
+    <div class="summary-line">
+      <span class="summary-chip">16 ideias · aguardando aprovação</span>
+    </div>
+    <div class="summary-line">
+      <span class="summary-chip format-chip">6 Reels</span>
+      <span class="summary-chip format-chip">5 Carrossel</span>
+      <span class="summary-chip format-chip">4 Estático</span>
+      <span class="summary-chip format-chip">1 Story</span>
+    </div>
   </div>
 </div>
 
