@@ -103,34 +103,18 @@ body::after  { background: var(--secondary); bottom: -20%; right: -10%; animatio
 }
 .summary-bar {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
   margin-bottom: 40px;
 }
-.summary-line {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.summary-total {
-  background: var(--accent);
-  color: var(--primary);
-  border-color: var(--accent);
-}
 .summary-chip {
-  background: rgba(204,255,0,0.06);
-  border: 1px solid rgba(204,255,0,0.2);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 20px;
-  padding: 5px 14px;
+  padding: 6px 18px;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(204,255,0,0.75);
-}
-.summary-chip.pending {
-  border-color: rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.45);
 }
 
 /* ── Tasks Container ── */
@@ -468,10 +452,7 @@ body::after  { background: var(--secondary); bottom: -20%; right: -10%; animatio
   <p class="doc-subtitle">Ideias para aprovação &nbsp;·&nbsp; Junho de 2026</p>
   <hr class="header-divider">
   <div class="summary-bar">
-    <div class="summary-line">
-      <span class="summary-chip summary-total">16 ideias</span>
-      <span class="summary-chip pending">aguardando aprovação</span>
-    </div>
+    <span class="summary-chip">16 ideias · aguardando aprovação</span>
   </div>
 </div>
 
