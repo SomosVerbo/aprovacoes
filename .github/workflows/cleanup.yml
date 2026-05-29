@@ -1,0 +1,34 @@
+name: Cleanup expired approvals
+on:
+  schedule:
+    - cron: "0 8 * * *"
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Delete HTML files older than 15 days
+        run: |
+          deleted=0
+          for file in *.html; do
+            [ "$file" = "index.html" ] && continue
+            [ ! -f "$file" ] && continue
+            commit_ts=$(git log -1 --format="%ct" -- "$file")
+            [ -z "$commit_ts" ] && continue
+            age=$(( ( $(date +%s) - commit_ts ) / 86400 ))
+            if [ "$age" -gt 15 ]; then
+              git rm "$file"
+              echo "Deleted $file ($age days old)"
+              deleted=1
+            fi
+          done
+          if [ "$deleted" -eq 1 ]; then
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git commit -m "chore: remove expired approval pages"
+            git push
+          fi
