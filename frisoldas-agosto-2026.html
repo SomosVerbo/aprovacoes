@@ -479,25 +479,29 @@ body::after  { background: var(--secondary); bottom: -20%; right: -10%; animatio
 
 <main class="tasks-container">
 <style>
-.cal-wrap{max-width:860px;margin:0 auto 40px;background:var(--primary);border:2px solid rgba(204,255,0,0.3);border-radius:12px;padding:24px;box-shadow:8px 8px 0px rgba(204,255,0,0.08);}
+.cal-wrap{max-width:1040px;margin:0 auto 40px;background:var(--primary);border:2px solid rgba(204,255,0,0.3);border-radius:12px;padding:24px;box-shadow:8px 8px 0px rgba(204,255,0,0.08);box-sizing:border-box;}
+.cal-wrap *{box-sizing:border-box;}
+@media (min-width:1024px){
+  .cal-wrap{width:calc(100% + 260px);margin-left:-130px;margin-right:-130px;}
+}
 .cal-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(204,255,0,0.7);margin-bottom:16px;}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
 .cal-head{margin-bottom:6px;}
 .cal-wd{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);text-align:center;padding:4px 0;}
-.cal-day{min-height:64px;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:4px;display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,0.02);}
+.cal-day{min-height:82px;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:5px;display:flex;flex-direction:column;gap:3px;background:rgba(255,255,255,0.02);overflow:hidden;}
 .cal-day--empty{border-color:transparent;background:transparent;}
 .cal-day--has{border-color:rgba(204,255,0,0.35);background:rgba(204,255,0,0.05);}
 .cal-daynum{font-size:10px;color:rgba(255,255,255,0.45);font-weight:600;}
 .cal-day--has .cal-daynum{color:var(--accent);}
-.cal-pill{display:block;font-size:8px;line-height:1.3;font-weight:600;color:var(--accent);background:rgba(204,255,0,0.1);border:1px solid rgba(204,255,0,0.25);border-radius:4px;padding:2px 4px;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:background .2s,color .2s;}
+.cal-pill{display:block;font-size:10.5px;line-height:1.3;font-weight:600;color:var(--accent);background:rgba(204,255,0,0.1);border:1px solid rgba(204,255,0,0.25);border-radius:4px;padding:3px 5px;text-decoration:none;white-space:normal;word-break:break-word;transition:background .2s,color .2s;}
 .cal-pill:hover{background:var(--accent);color:var(--primary);}
 .cal-pill--estatico{color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);}
 .cal-pill--carrossel{color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);}
 @media (max-width:600px){
   .cal-wrap{padding:14px;}
-  .cal-day{min-height:48px;}
+  .cal-day{min-height:64px;padding:3px;}
   .cal-wd{font-size:7px;}
-  .cal-pill{font-size:7px;}
+  .cal-pill{font-size:8.5px;padding:2px 3px;}
 }
 </style><div class="cal-wrap">
   <div class="cal-title">Calendário &middot; Agosto 2026</div>
